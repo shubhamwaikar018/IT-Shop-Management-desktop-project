@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34CBFC22-BC7B-4CC7-A061-914C31387D8D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ItShopManagement</RootNamespace>
+    <AssemblyName>ItShopManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>D:\ItShopManagement\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/ItShopManagement/</UpdateUrl>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>D576294545BB0E8D64115A8720EB3E06E2301FAD</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ItShopManagement_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>ItShopManagement.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>cpu.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesomeIcons, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FontAwesomeIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="KWC.BCS.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\KWC.BCS.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="KWC.BCS.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\KWC.BCS.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="KWC.BCS.Validations, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\KWC.BCS.Validations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MyDataBaseManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyDataBaseManager\bin\Debug\MyDataBaseManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmlogin.designer.cs">
+      <DependentUpon>frmlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrders.designer.cs">
+      <DependentUpon>FrmOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmorderstatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmorderstatus.designer.cs">
+      <DependentUpon>frmorderstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmpaymentmode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmpaymentmode.designer.cs">
+      <DependentUpon>frmpaymentmode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmproduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmproduct.designer.cs">
+      <DependentUpon>frmproduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmproductcategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmproductcategory.designer.cs">
+      <DependentUpon>frmproductcategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmproducttype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmproducttype.designer.cs">
+      <DependentUpon>frmproducttype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmservice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmservice.Designer.cs">
+      <DependentUpon>frmservice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmservicemode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmservicemode.Designer.cs">
+      <DependentUpon>frmservicemode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmservicestatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmservicestatus.Designer.cs">
+      <DependentUpon>frmservicestatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmuser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmuser.designer.cs">
+      <DependentUpon>frmuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmvendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmvendor.designer.cs">
+      <DependentUpon>frmvendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmvendortype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmvendortype.designer.cs">
+      <DependentUpon>frmvendortype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="itShopManagementDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itShopManagementDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itShopManagementDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itShopManagementDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itshopManagementDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopManagementDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itshopManagementDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopManagementDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itshopManagementDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopManagementDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itshopManagementDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopManagementDataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itShopManagementDataSet8.cs">
+      <DependentUpon>itShopManagementDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itShopManagementDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itShopManagementDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itShopManagementDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itShopManagementDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ItShopManagmentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItShopManagmentDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ItShopManagmentDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItShopManagmentDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ItShopManagmentDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItShopManagmentDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ItShopManagmentDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItShopManagmentDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ItShopManagmentDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItShopManagmentDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ItShopManagmentDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItShopManagmentDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ItShopManagmentDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItShopManagmentDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ItShopManagmentDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItShopManagmentDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itsShopManagementDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itsShopManagementDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main.Designer.cs">
+      <DependentUpon>main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Product.Designer.cs">
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductCategory.Designer.cs">
+      <DependentUpon>ProductCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductType.Designer.cs">
+      <DependentUpon>ProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Vendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Vendor.Designer.cs">
+      <DependentUpon>Vendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VendorTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\VendorTypes.Designer.cs">
+      <DependentUpon>VendorTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="frmlogin.resx">
+      <DependentUpon>frmlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrders.resx">
+      <DependentUpon>FrmOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmorderstatus.resx">
+      <DependentUpon>frmorderstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmpaymentmode.resx">
+      <DependentUpon>frmpaymentmode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmproduct.resx">
+      <DependentUpon>frmproduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmproductcategory.resx">
+      <DependentUpon>frmproductcategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmproducttype.resx">
+      <DependentUpon>frmproducttype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmservice.resx">
+      <DependentUpon>frmservice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmservicemode.resx">
+      <DependentUpon>frmservicemode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmservicestatus.resx">
+      <DependentUpon>frmservicestatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmuser.resx">
+      <DependentUpon>frmuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmvendor.resx">
+      <DependentUpon>frmvendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmvendortype.resx">
+      <DependentUpon>frmvendortype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main.resx">
+      <DependentUpon>main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\Invoice.rdlc" />
+    <EmbeddedResource Include="Reports\Product.resx">
+      <DependentUpon>Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductCategory.resx">
+      <DependentUpon>ProductCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductType.resx">
+      <DependentUpon>ProductType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Vendor.rdlc" />
+    <EmbeddedResource Include="Reports\Vendor.resx">
+      <DependentUpon>Vendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VendorType.rdlc" />
+    <EmbeddedResource Include="Reports\ProductType.rdlc" />
+    <EmbeddedResource Include="Reports\Product.rdlc" />
+    <EmbeddedResource Include="Reports\ProductCategory.rdlc" />
+    <EmbeddedResource Include="Reports\VendorTypes.resx">
+      <DependentUpon>VendorTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="itShopManagementDataSet10.xsc">
+      <DependentUpon>itShopManagementDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="itShopManagementDataSet10.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itShopManagementDataSet10.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itShopManagementDataSet10.xss">
+      <DependentUpon>itShopManagementDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="itShopManagementDataSet12.xsc">
+      <DependentUpon>itShopManagementDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="itShopManagementDataSet12.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itShopManagementDataSet12.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itShopManagementDataSet12.xss">
+      <DependentUpon>itShopManagementDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="itshopManagementDataSet13.xsc">
+      <DependentUpon>itshopManagementDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="itshopManagementDataSet13.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopManagementDataSet13.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopManagementDataSet13.xss">
+      <DependentUpon>itshopManagementDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="itshopManagementDataSet14.xsc">
+      <DependentUpon>itshopManagementDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="itshopManagementDataSet14.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopManagementDataSet14.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopManagementDataSet14.xss">
+      <DependentUpon>itshopManagementDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="itshopManagementDataSet15.xsc">
+      <DependentUpon>itshopManagementDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="itshopManagementDataSet15.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopManagementDataSet15.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopManagementDataSet15.xss">
+      <DependentUpon>itshopManagementDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="itshopManagementDataSet16.xsc">
+      <DependentUpon>itshopManagementDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="itshopManagementDataSet16.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopManagementDataSet16.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopManagementDataSet16.xss">
+      <DependentUpon>itshopManagementDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="itShopManagementDataSet8.xsc">
+      <DependentUpon>itShopManagementDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="itShopManagementDataSet8.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itShopManagementDataSet8.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itShopManagementDataSet8.xss">
+      <DependentUpon>itShopManagementDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="itShopManagementDataSet9.xsc">
+      <DependentUpon>itShopManagementDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="itShopManagementDataSet9.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itShopManagementDataSet9.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itShopManagementDataSet9.xss">
+      <DependentUpon>itShopManagementDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet.xsc">
+      <DependentUpon>ItShopManagmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItShopManagmentDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ItShopManagmentDataSet.xss">
+      <DependentUpon>ItShopManagmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet1.xsc">
+      <DependentUpon>ItShopManagmentDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItShopManagmentDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ItShopManagmentDataSet1.xss">
+      <DependentUpon>ItShopManagmentDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet2.xsc">
+      <DependentUpon>ItShopManagmentDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItShopManagmentDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ItShopManagmentDataSet2.xss">
+      <DependentUpon>ItShopManagmentDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet3.xsc">
+      <DependentUpon>ItShopManagmentDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItShopManagmentDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ItShopManagmentDataSet3.xss">
+      <DependentUpon>ItShopManagmentDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet4.xsc">
+      <DependentUpon>ItShopManagmentDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItShopManagmentDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ItShopManagmentDataSet4.xss">
+      <DependentUpon>ItShopManagmentDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet5.xsc">
+      <DependentUpon>ItShopManagmentDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItShopManagmentDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ItShopManagmentDataSet5.xss">
+      <DependentUpon>ItShopManagmentDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet6.xsc">
+      <DependentUpon>ItShopManagmentDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItShopManagmentDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ItShopManagmentDataSet6.xss">
+      <DependentUpon>ItShopManagmentDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet7.xsc">
+      <DependentUpon>ItShopManagmentDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagmentDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItShopManagmentDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ItShopManagmentDataSet7.xss">
+      <DependentUpon>ItShopManagmentDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="itsShopManagementDataSet11.xsc">
+      <DependentUpon>itsShopManagementDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="itsShopManagementDataSet11.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itsShopManagementDataSet11.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itsShopManagementDataSet11.xss">
+      <DependentUpon>itsShopManagementDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\Billing-595b40b65ba036ed117d431b.png" />
+    <None Include="Resources\master.png" />
+    <None Include="Resources\pictureBox1.Image.png" />
+    <None Include="Resources\main logo %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cpu.ico" />
+    <Content Include="ItShopManagment.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ItShopManagment_log.ldf">
+      <DependentUpon>ItShopManagment.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\1add1.png" />
+    <None Include="Resources\1 sav1.png" />
+    <None Include="Resources\1 ext1.png" />
+    <None Include="Resources\1 del1.png" />
+    <None Include="Resources\1add.png" />
+    <None Include="Resources\1 del.png" />
+    <None Include="Resources\1 ext.png" />
+    <None Include="Resources\1 sav.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

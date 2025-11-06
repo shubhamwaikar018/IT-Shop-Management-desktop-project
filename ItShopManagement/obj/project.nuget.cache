@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "hJZaH2Aik3foAwVF2fXwMgs6nMajjiDMcRsR3AnEqNr+31uiaqfPSjV42JDolqNhG8gFvvxPShRWaOCjqc713w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\SAURABH\\Documents\\ItShopManagement\\ItShopManagement\\ItShopManagement.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SAURABH\\.nuget\\packages\\microsoft.report.viewer\\11.0.0\\microsoft.report.viewer.11.0.0.nupkg.sha512",
+    "C:\\Users\\SAURABH\\.nuget\\packages\\microsoft.reportingservices.reportviewercontrol.winforms\\150.1537.0\\microsoft.reportingservices.reportviewercontrol.winforms.150.1537.0.nupkg.sha512",
+    "C:\\Users\\SAURABH\\.nuget\\packages\\microsoft.sqlserver.types\\160.1000.6\\microsoft.sqlserver.types.160.1000.6.nupkg.sha512"
+  ],
+  "logs": []
+}

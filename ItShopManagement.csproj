@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34CBFC22-BC7B-4CC7-A061-914C31387D8D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ItShopManagement</RootNamespace>
+    <AssemblyName>ItShopManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://localhost:8080/itshop/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>D576294545BB0E8D64115A8720EB3E06E2301FAD</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ItShopManagement_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBManager.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmlogin.Designer.cs">
+      <DependentUpon>frmlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmorder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmorder.Designer.cs">
+      <DependentUpon>frmorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmorderstatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmorderstatus.Designer.cs">
+      <DependentUpon>frmorderstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmpaymentmode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmpaymentmode.Designer.cs">
+      <DependentUpon>frmpaymentmode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmproduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmproduct.Designer.cs">
+      <DependentUpon>frmproduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmproductcategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmproductcategory.Designer.cs">
+      <DependentUpon>frmproductcategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmproducttype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmproducttype.Designer.cs">
+      <DependentUpon>frmproducttype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmuser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmuser.Designer.cs">
+      <DependentUpon>frmuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmvendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmvendor.Designer.cs">
+      <DependentUpon>frmvendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmvendortype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmvendortype.Designer.cs">
+      <DependentUpon>frmvendortype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="itshopDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itshopDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itshopDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itshopDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itshopDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itshopDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itshopDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="itshopDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itshopDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main.Designer.cs">
+      <DependentUpon>main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="orderstatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="orderstatus.Designer.cs">
+      <DependentUpon>orderstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="paymentmode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="paymentmode.Designer.cs">
+      <DependentUpon>paymentmode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="product.Designer.cs">
+      <DependentUpon>product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="productcategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="productcategory.Designer.cs">
+      <DependentUpon>productcategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="producttype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="producttype.Designer.cs">
+      <DependentUpon>producttype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="vendors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vendors.Designer.cs">
+      <DependentUpon>vendors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vendortype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vendortype.Designer.cs">
+      <DependentUpon>vendortype.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmlogin.resx">
+      <DependentUpon>frmlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmorder.resx">
+      <DependentUpon>frmorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmorderstatus.resx">
+      <DependentUpon>frmorderstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmpaymentmode.resx">
+      <DependentUpon>frmpaymentmode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmproduct.resx">
+      <DependentUpon>frmproduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmproductcategory.resx">
+      <DependentUpon>frmproductcategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmproducttype.resx">
+      <DependentUpon>frmproducttype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmuser.resx">
+      <DependentUpon>frmuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmvendor.resx">
+      <DependentUpon>frmvendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmvendortype.resx">
+      <DependentUpon>frmvendortype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main.resx">
+      <DependentUpon>main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="orderstatus.resx">
+      <DependentUpon>orderstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paymentmode.resx">
+      <DependentUpon>paymentmode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="product.resx">
+      <DependentUpon>product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="productcategory.resx">
+      <DependentUpon>productcategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="producttype.resx">
+      <DependentUpon>producttype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="Report4.rdlc" />
+    <EmbeddedResource Include="Report5.rdlc" />
+    <EmbeddedResource Include="Report6.rdlc" />
+    <EmbeddedResource Include="Report7.rdlc" />
+    <EmbeddedResource Include="vendors.resx">
+      <DependentUpon>vendors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vendortype.resx">
+      <DependentUpon>vendortype.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="itshopDataSet1.xsc">
+      <DependentUpon>itshopDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopDataSet1.xss">
+      <DependentUpon>itshopDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet2.xsc">
+      <DependentUpon>itshopDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopDataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopDataSet2.xss">
+      <DependentUpon>itshopDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet3.xsc">
+      <DependentUpon>itshopDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet3.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopDataSet3.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopDataSet3.xss">
+      <DependentUpon>itshopDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet4.xsc">
+      <DependentUpon>itshopDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet4.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopDataSet4.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopDataSet4.xss">
+      <DependentUpon>itshopDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet5.xsc">
+      <DependentUpon>itshopDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet5.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopDataSet5.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopDataSet5.xss">
+      <DependentUpon>itshopDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet6.xsc">
+      <DependentUpon>itshopDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet6.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopDataSet6.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopDataSet6.xss">
+      <DependentUpon>itshopDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet7.xsc">
+      <DependentUpon>itshopDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet7.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopDataSet7.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopDataSet7.xss">
+      <DependentUpon>itshopDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet8.xsc">
+      <DependentUpon>itshopDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="itshopDataSet8.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itshopDataSet8.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="itshopDataSet8.xss">
+      <DependentUpon>itshopDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="ItShopManagement_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Itshop.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Itshop_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Itshop.mdf</DependentUpon>
+    </Content>
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\Billing-595b40b65ba036ed117d431b.png" />
+    <None Include="Resources\master.png" />
+    <EmbeddedResource Include="Report1.rdlc">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <None Include="Resources\pictureBox1.Image.png" />
+    <None Include="Resources\main logo %281%29.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
